@@ -37,7 +37,7 @@
     return $response;
   }
 
-  $Topic = "ESP32S";
+  $Topic = "ESP32";
   $lineMsg = "CHECK";
   getMqttfromlineMsg($Topic,$lineMsg);
 ?>
