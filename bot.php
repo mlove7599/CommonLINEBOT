@@ -9,8 +9,8 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 // Validate parsed JSON data
-if (!is_null($events['ESP'])) {
-   send_LINE($events['ESP']);
+if (!is_null($events['ESP32'])) {
+   send_LINE($events['ESP32']);
    echo "OK";
 }
 
@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
 	}
     }
  }
- $Topic = "ESP32S" ;
+ $Topic = "ESP32" ;
  $text = "Test";
  getMqttfromlineMsg($Topic,$text);
  echo "OK3";
