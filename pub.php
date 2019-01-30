@@ -36,16 +36,14 @@
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
      
     curl_setopt($ch, CURLOPT_POSTFIELDS, $tmsg);
- 
-    //curl_setopt($ch, CURLOPT_USERPWD, "mJ7K4MfteC7p0dW:pp4gzMhCvJIqlxc66hKEvk46m");
-     
+      
     $response = curl_exec($ch);
     
       curl_close($ch);
       echo $response . "\r\n";
     return $response;
 }
-// $Topic = "NodeMCU1";
+// $Topic = "ESP32";
  //$lineMsg = "CHECK";
  //getMqttfromlineMsg($Topic,$lineMsg);
 ?>
