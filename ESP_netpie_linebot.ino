@@ -1,6 +1,6 @@
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 #include <MicroGear.h>
-#include <ESP8266HTTPClient.h>
+#include <HTTPClient.h>
 #include <ArduinoJson.h>
 const char* ssid     = "your SSID"; //change this to your SSID
 const char* password = "your PASSWORD"; //change this to your PASSWORD
