@@ -30,8 +30,6 @@ if (!is_null($events['events'])) {
 	}
     }
  }
- //$Topic = "ESP32" ;
- //$text = "Test";
- //getMqttfromlineMsg($Topic,$text);
+
  echo "OK3";
 ?>
