@@ -8,12 +8,13 @@
 const char* ssid     = "*********";           //change this to your SSID
 const char* password = "*********";           //change this to your PASSWORD
 
-const char* host =  "http://<github_repositories_name>.herokuapp.com/bot.php"; //change this to your linebot server ex.http://demoremote.herokuapp.com/bot.php
-#define APPID       "NETPIE_APP-ID"             //change this to your APPID
-#define KEY         "NETPIE_Device-Key"         //change this to your KEY
-#define SECRET      "NETPIE_Device-Secret-Key"  //change this to your SECRET
+const char* host =  "http://demoremote.herokuapp.com/bot.php"; //change this to your linebot server ex.http://demoremote.herokuapp.com/bot.php
+//NETPIE-Info
+#define APPID       "demoremote"                 //Same data at Line#3 of pub.php
+#define KEY         "kKjhxuT3mC0uPzq"            //Same data at Line#4 of pub.php
+#define SECRET      "EabDQ4oLxehxIe5UGzVOn3AbP"  //Same data at Line#5 of pub.php
 
-#define ALIAS   "NETPIE_Device-Name"     //set name of drvice
+#define ALIAS   "ESP32"     //set name of drvice
 
 WiFiClient client;
 String uid = "";
