@@ -8,7 +8,7 @@
 const char* ssid     = "*********";           //change this to your SSID
 const char* password = "*********";           //change this to your PASSWORD
 
-const char* host =  "http://<github_repositories_name>.herokuapp.com/bot.php"; //change this to your linebot server ex.http://numpapick-linebot.herokuapp.com/bot.php
+const char* host =  "http://<github_repositories_name>.herokuapp.com/bot.php"; //change this to your linebot server ex.http://demoremote.herokuapp.com/bot.php
 #define APPID       "NETPIE_APP-ID"             //change this to your APPID
 #define KEY         "NETPIE_Device-Key"         //change this to your KEY
 #define SECRET      "NETPIE_Device-Secret-Key"  //change this to your SECRET
