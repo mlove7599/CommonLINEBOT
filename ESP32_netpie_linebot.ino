@@ -5,8 +5,8 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid     = "*********";           //change this to your SSID
-const char* password = "*********";           //change this to your PASSWORD
+const char* ssid     = "*********";         //change this to your SSID
+const char* password = "*********";         //change this to your PASSWORD
 
 const char* host =  "http://HerokuAppName.herokuapp.com/bot.php"; //PUT your Heroku App Name ex.http://mylinebot.herokuapp.com/bot.php
 //NETPIE-Info
@@ -14,7 +14,7 @@ const char* host =  "http://HerokuAppName.herokuapp.com/bot.php"; //PUT your Her
 #define KEY         "NETPIE_KEY_ID"        //Same data at Line#4 of pub.php
 #define SECRET      "NETPIE_SECRET_ID"     //Same data at Line#5 of pub.php
 
-#define ALIAS   "ESP32"                    //set name of drvice
+#define ALIAS   "ESP32"                    //set name of device
 
 WiFiClient client;
 String uid = "";
@@ -98,12 +98,12 @@ void setup() {
 
 void loop() {
   if (microgear.connected()) {
-    Serial.println("...");
+    Serial.println("NETPIE is connecting!");
     microgear.loop();
     timer = 0;
   }
   else {
-    Serial.println("connection lost, reconnect...");
+    Serial.println("NETPIE is reconnecting...");
     if (timer >= 5000) {
       microgear.connect(APPID);
       timer = 0;
