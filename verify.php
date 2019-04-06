@@ -1,5 +1,5 @@
 <?php
-$access_token = 'cFGAsTVf5PTHvBrx4O8uj0m/tY4wsIQA74Sdr597EMuTlXInQ1h+BpO65pH62YWX+eDnZWhmSWRGVGlqQUcbbudAXmiH3n+l+ha8vGu5louLJ3RK47v2BjSxauoP6jO2RZyka4G8lCECQiKzWcj6ewdB04t89/1O/w1cDnyilFU=';
+$access_token = 'LINE_token_ID';    //PUT LINE token ID at "Channel access token (long-lived)"
 $url = 'https://api.line.me/v1/oauth/verify';
 $headers = array('Authorization: Bearer ' . $access_token);
 
