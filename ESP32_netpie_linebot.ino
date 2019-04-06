@@ -8,13 +8,13 @@
 const char* ssid     = "*********";           //change this to your SSID
 const char* password = "*********";           //change this to your PASSWORD
 
-const char* host =  "http://demoremote.herokuapp.com/bot.php"; //change this to your linebot server ex.http://demoremote.herokuapp.com/bot.php
+const char* host =  "http://HerokuAppName.herokuapp.com/bot.php"; //PUT your Heroku App Name ex.http://mylinebot.herokuapp.com/bot.php
 //NETPIE-Info
-#define APPID       "NETPIE_APPID_NAME"                 //Same data at Line#3 of pub.php
-#define KEY         "NETPIE_KEY_NO"            //Same data at Line#4 of pub.php
-#define SECRET      "NETPIE_SECRET_NO"  //Same data at Line#5 of pub.php
+#define APPID       "NETPIE_APPID_NAME"    //Same data at Line#3 of pub.php
+#define KEY         "NETPIE_KEY_ID"        //Same data at Line#4 of pub.php
+#define SECRET      "NETPIE_SECRET_ID"     //Same data at Line#5 of pub.php
 
-#define ALIAS   "ESP32"     //set name of drvice
+#define ALIAS   "ESP32"                    //set name of drvice
 
 WiFiClient client;
 String uid = "";
