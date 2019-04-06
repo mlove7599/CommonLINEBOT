@@ -10,9 +10,9 @@ const char* password = "*********";           //change this to your PASSWORD
 
 const char* host =  "http://demoremote.herokuapp.com/bot.php"; //change this to your linebot server ex.http://demoremote.herokuapp.com/bot.php
 //NETPIE-Info
-#define APPID       "demoremote"                 //Same data at Line#3 of pub.php
-#define KEY         "kKjhxuT3mC0uPzq"            //Same data at Line#4 of pub.php
-#define SECRET      "EabDQ4oLxehxIe5UGzVOn3AbP"  //Same data at Line#5 of pub.php
+#define APPID       "NETPIE_APPID_NAME"                 //Same data at Line#3 of pub.php
+#define KEY         "NETPIE_KEY_NO"            //Same data at Line#4 of pub.php
+#define SECRET      "NETPIE_SECRET_NO"  //Same data at Line#5 of pub.php
 
 #define ALIAS   "ESP32"     //set name of drvice
 
@@ -22,7 +22,7 @@ int timer = 0;
 MicroGear microgear(client);
 
 void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
-  Serial.print("Incoming message -->");
+  Serial.print("LINE MSG is");
   msg[msglen] = '\0';
   Serial.println((char *)msg);
   String msgLINE = (char *)msg;
@@ -37,7 +37,7 @@ void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
 }
 
 void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
-  Serial.println("Connected to NETPIE...");
+  Serial.println("NETPIE is connected");
   microgear.setName(ALIAS);
 }
 
