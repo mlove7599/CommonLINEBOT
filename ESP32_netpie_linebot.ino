@@ -42,19 +42,23 @@ void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
 }
 
 void send_json(String data) {
-  StaticJsonBuffer<300> JSONbuffer;   //Declaring static JSON buffer
-  JsonObject& JSONencoder = JSONbuffer.createObject();
+  //StaticJsonBuffer<300> JSONbuffer;   //Declaring static JSON buffer
+  StaticJsonDocument<300> JSONencoder;   //Declaring static JSON buffer
+  
+  //JsonObject& JSONencoder = JSONbuffer.createObject();
 
   JSONencoder["ESP"] = data;
 
-  JsonArray& values = JSONencoder.createNestedArray("values"); //JSON array
+  //JsonArray& values = JSONencoder.createNestedArray("values"); //JSON array
+  JsonArray values = JSONencoder.createNestedArray("values"); //JSON array
   values.add(20); //Add value to array
   values.add(21); //Add value to array
   values.add(23); //Add value to array
 
 
   char JSONmessageBuffer[300];
-  JSONencoder.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
+  //JSONencoder.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
+  serializeJsonPretty(JSONencoder, JSONmessageBuffer, sizeof(JSONmessageBuffer));
   Serial.println(JSONmessageBuffer);
 
   HTTPClient http;                                    //Declare object of class HTTPClient
