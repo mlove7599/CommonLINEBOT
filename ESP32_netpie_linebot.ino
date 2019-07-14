@@ -30,9 +30,12 @@ void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
     digitalWrite(16, HIGH);         // LED on
     send_json("LED Turn on");
   }
-  if ( msgLINE == "OFF" || msgLINE == "Off"  || msgLINE == "off" ) {
+  else if ( msgLINE == "OFF" || msgLINE == "Off"  || msgLINE == "off" ) {
     digitalWrite(16, LOW);          // LED off
     send_json("LED turn off");
+  }
+  else {
+    send_json("Syntax error command");
   }
 }
 
@@ -42,14 +45,8 @@ void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
 }
 
 void send_json(String data) {
-  //StaticJsonBuffer<300> JSONbuffer;   //Declaring static JSON buffer
   StaticJsonDocument<300> JSONencoder;   //Declaring static JSON buffer
-  
-  //JsonObject& JSONencoder = JSONbuffer.createObject();
-
   JSONencoder["ESP"] = data;
-
-  //JsonArray& values = JSONencoder.createNestedArray("values"); //JSON array
   JsonArray values = JSONencoder.createNestedArray("values"); //JSON array
   values.add(20); //Add value to array
   values.add(21); //Add value to array
@@ -57,7 +54,6 @@ void send_json(String data) {
 
 
   char JSONmessageBuffer[300];
-  //JSONencoder.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
   serializeJsonPretty(JSONencoder, JSONmessageBuffer, sizeof(JSONmessageBuffer));
   Serial.println(JSONmessageBuffer);
 
@@ -76,6 +72,7 @@ void send_json(String data) {
 }
 
 void setup() {
+  microgear.setEEPROMOffset(3000);
   microgear.on(MESSAGE, onMsghandler);
   microgear.on(CONNECTED, onConnected);
 
@@ -95,6 +92,7 @@ void setup() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 
+  microgear.resetToken();
   microgear.init(KEY, SECRET, ALIAS);
   microgear.connect(APPID);
   digitalWrite(16, HIGH);   // LED on
