@@ -34,6 +34,11 @@ void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
     digitalWrite(16, LOW);          // LED off
     send_json("LED turn off");
   }
+  else if ( msgLINE == "RESET" || msgLINE == "Reset"  || msgLINE == "reset" ) {
+    send_json("System Resetting");
+    delay(5000);
+    ESP.restart();
+  }
   else {
     send_json("Syntax error command");
   }
