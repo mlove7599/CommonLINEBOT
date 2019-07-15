@@ -27,12 +27,12 @@ void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
   Serial.println((char *)msg);
   String msgLINE = (char *)msg;
   if ( msgLINE == "ON" || msgLINE == "On" || msgLINE == "on" ) {
+    send_json("Turn on LED");
     digitalWrite(16, HIGH);         // LED on
-    send_json("LED Turn on");
-  }
+  } 
   else if ( msgLINE == "OFF" || msgLINE == "Off"  || msgLINE == "off" ) {
+    send_json("Turn off LED");
     digitalWrite(16, LOW);          // LED off
-    send_json("LED turn off");
   }
   else if ( msgLINE == "RESET" || msgLINE == "Reset"  || msgLINE == "reset" ) {
     send_json("System Resetting");
