@@ -50,30 +50,31 @@ void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
 }
 
 void send_json(String data) {
-  StaticJsonDocument<300> JSONencoder;   //Declaring static JSON buffer
+  StaticJsonDocument<300> JSONencoder;
+
   JSONencoder["ESP"] = data;
+
   JsonArray values = JSONencoder.createNestedArray("values"); //JSON array
   values.add(20); //Add value to array
   values.add(21); //Add value to array
   values.add(23); //Add value to array
 
-
   char JSONmessageBuffer[300];
   serializeJsonPretty(JSONencoder, JSONmessageBuffer, sizeof(JSONmessageBuffer));
   Serial.println(JSONmessageBuffer);
 
-  HTTPClient http;                                    //Declare object of class HTTPClient
+  HTTPClient http;
 
-  http.begin(host);                                   //Specify request destination
-  http.addHeader("Content-Type", "application/json"); //Specify content-type header
+  http.begin(host);
+  http.addHeader("Content-Type", "application/json");
 
-  int httpCode = http.POST(JSONmessageBuffer);        //Send the request
-  String payload = http.getString();                  //Get the response payload
+  int httpCode = http.POST(JSONmessageBuffer);
+  String payload = http.getString();
 
-  Serial.println(httpCode);   //Print HTTP return code
-  Serial.println(payload);    //Print request response payload
+  Serial.println(httpCode);
+  Serial.println(payload);
 
-  http.end();                 //Close connection
+  http.end();
 }
 
 void setup() {
