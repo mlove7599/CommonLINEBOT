@@ -17,7 +17,6 @@ const char* host =  "http://HerokuAppName.herokuapp.com/bot.php"; //PUT your Her
 #define ALIAS   "ESP32"                    //set name of device
 
 WiFiClient client;
-String uid = "";
 int timer = 0;
 MicroGear microgear(client);
 
