@@ -1,7 +1,7 @@
 <?php
 
 function send_LINE($msg){
- $access_token = 'ZhSNwChWBEiRQ8tqp9QKlvjpaJduFsCa0Omx2HQXJXsu';    //PUT LINE token ID at "Channel access token (long-lived)" 
+ $access_token = 'hSNwChWBEiRQ8tqp9QKlvjpaJduFsCa0Omx2HQXJXsu';    //PUT LINE token ID at "Channel access token (long-lived)" 
  $messages = [
         'type' => 'text',
         'text' => $msg
